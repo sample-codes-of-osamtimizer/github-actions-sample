@@ -15,6 +15,7 @@ jobs:
   specified_job:
     name: specified
     runs-on: ubuntu-latest
+    if: ${{ ${GITHUB_REF##*/} == 'release' }}
     steps:
-      name: echo something if branch name is release
-      if: ${{ ${GITHUB_REF##*/} == 'release' }}
+      - name: echo something if branch name is release
+        run: echo ${GITHUB_REF##*/}
