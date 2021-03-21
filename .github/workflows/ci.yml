@@ -2,6 +2,8 @@ name: 'sample ci'
 
 on:
   - push
+env:
+  BRANCH_NAME: ${GITHUB_REF#refs/heads/}
 
 jobs:
   build:
@@ -12,6 +14,8 @@ jobs:
         run: echo "Hello, World!"
       - name: show branch name
         run: echo ${GITHUB_REF##*/}
+      - name: show env
+        run: echo ${BRANCH_NAME}
   specified_job:
     name: specified
     runs-on: ubuntu-latest
