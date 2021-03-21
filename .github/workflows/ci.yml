@@ -3,7 +3,7 @@ name: 'sample ci'
 on:
   - push
 env:
-  BRANCH_NAME: ${GITHUB_REF#refs/heads/}
+  BRANCH_NAME: "${GITHUB_REF#refs/heads/}"
 
 jobs:
   build:
