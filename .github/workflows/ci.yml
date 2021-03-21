@@ -15,7 +15,7 @@ jobs:
   specified_job:
     name: specified
     runs-on: ubuntu-latest
-    if: github.ref === 'release/staging' || github.ref === 'release/production'
+    if: github.ref == 'release/staging' || github.ref == 'release/production'
     steps:
       - name: echo something if branch name is release
         run: echo ${GITHUB_REF##*/}
