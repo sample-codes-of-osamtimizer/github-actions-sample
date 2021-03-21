@@ -3,7 +3,7 @@ name: 'sample ci'
 on:
   - push
 env:
-  SAMPLE_JSON: ${{ secrets.SAMPLE_JSON }}
+  ENCODED_SAMPLE_YAML: ${{ secrets.ENCODED_SAMPLE_YAML }}
 
 jobs:
   build:
@@ -16,8 +16,10 @@ jobs:
         run: echo ${GITHUB_REF##*/}
       - name: show env
         run: echo ${BRANCH_NAME}
-      - name: show json
-        run: echo ${SAMPLE_JSON}
+      - name: show decoded yaml
+        run: |
+          echo "$ENCODED_SAMPLE_YAML" | base64 --decode > /tmp/config
+          cat /tmp/config
   specified_job:
     name: specified
     runs-on: ubuntu-latest
