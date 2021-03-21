@@ -12,3 +12,9 @@ jobs:
         run: echo "Hello, World!"
       - name: show branch name
         run: echo ${GITHUB_REF##*/}
+  specified_job:
+    name: specified
+    runs-on: ubuntu-latest
+    steps:
+      name: echo something if branch name is release
+      if: ${{ ${GITHUB_REF##*/} == 'release' }}
