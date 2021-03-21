@@ -3,7 +3,7 @@ name: 'sample ci'
 on:
   - push
 env:
-  BRANCH_NAME: ${{ ${GITHUB_REF#refs/heads/} }}
+  SAMPLE_JSON: ${{ secrets.SAMPLE_JSON }}
 
 jobs:
   build:
@@ -16,6 +16,8 @@ jobs:
         run: echo ${GITHUB_REF##*/}
       - name: show env
         run: echo ${BRANCH_NAME}
+      - name: show json
+        run: echo ${SAMPLE_JSON}
   specified_job:
     name: specified
     runs-on: ubuntu-latest
