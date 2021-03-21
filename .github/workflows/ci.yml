@@ -1,0 +1,12 @@
+name: 'sample ci'
+
+on:
+  - push
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: ubuntu-latest
+    steps:
+      - name: hoge
+        run: echo "Hello, World!"
