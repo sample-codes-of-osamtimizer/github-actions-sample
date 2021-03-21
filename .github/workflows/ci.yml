@@ -10,3 +10,5 @@ jobs:
     steps:
       - name: hoge
         run: echo "Hello, World!"
+      - name: show branch name
+        run: echo "${{GITHUB_REF}}"
